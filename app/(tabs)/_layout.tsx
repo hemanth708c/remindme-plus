@@ -1,33 +1,81 @@
+// app/(tabs)/_layout.tsx
+import { FontAwesome5 } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { Text } from 'react-native';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        headerTitleAlign: 'center',
+        // slightly smaller label and heavier weight so it fits better
+        tabBarLabelStyle: { fontSize: 13, fontWeight: '600' },
+        // give each tab more horizontal space so labels don't clip
+        tabBarItemStyle: { paddingHorizontal: 8 },
+        tabBarStyle: { height: 64, paddingBottom: 6 },
+        tabBarActiveTintColor: '#0b84ff',
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="today"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Today',
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="calendar-day" size={size ?? 20} color={color} />
+          ),
+          // render label as component so it can wrap if needed
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ fontSize: 13, fontWeight: '600', textAlign: 'center' }}>
+              Today
+            </Text>
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="people"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'People',
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="users" size={size ?? 20} color={color} />
+          ),
+          tabBarLabel: () => (
+            <Text style={{ fontSize: 13, fontWeight: '600', textAlign: 'center' }}>
+              People
+            </Text>
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="memory-tests"
+        options={{
+          title: 'Memory Games',
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="brain" size={size ?? 20} color={color} />
+          ),
+          // custom label (this lets the label wrap to two lines if needed)
+          tabBarLabel: () => (
+            <Text style={{ fontSize: 13, fontWeight: '600', textAlign: 'center' }}>
+              Memory Games
+            </Text>
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="cog" size={size ?? 20} color={color} />
+          ),
+          tabBarLabel: () => (
+            <Text style={{ fontSize: 13, fontWeight: '600', textAlign: 'center' }}>
+              Settings
+            </Text>
+          ),
         }}
       />
     </Tabs>
