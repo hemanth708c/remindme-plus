@@ -242,8 +242,7 @@ export default function SettingsScreen() {
       <View style={{ flex: 1 }} />
 
       <Text style={styles.smallNote}>
-        Note: settings are saved locally on this device. If you want to export or sync later, I can add
-        export/import options.
+        RemindMe+ is here to help you stay connected to the moments that matter most. Whether it’s taking medicine, calling a loved one, or remembering a smile — we’ll gently remind you, so you never have to worry about forgetting.
       </Text>
     </SafeAreaView>
   );
