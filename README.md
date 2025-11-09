@@ -178,15 +178,15 @@ Contributions, feedback, and feature suggestions are welcome.
 
 ## Screenshots
 
-Add screenshots under `/assets/screenshots/` and reference them below:
 
-```markdown
-![Quiz Result](assets/screenshots/quiz_result.png)
-![Today Tab](assets/screenshots/today_tab.png)
-![People Tab](assets/screenshots/people_tab.png)
-```
+<p align="center">
+  <img src="assets/screenshots/today_tab.png" width="250" alt="Today Tab" />
+  <img src="assets/screenshots/people_tab.png" width="250" alt="People Tab" />
+  <img src="assets/screenshots/quiz_result.png" width="250" alt="Quiz Result" />
+</p>
 
 ---
+
 
 ## Privacy Policy
 
