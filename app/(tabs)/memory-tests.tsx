@@ -283,14 +283,45 @@ export default function MemoryTestsScreen() {
             )}
 
             <View style={{ flexDirection: 'row', marginTop: 18 }}>
-              <Pressable style={styles.primaryAction} onPress={() => { restartQuiz(); setShowResultModal(false); }}>
-                <Text style={styles.primaryActionText}>Play Again</Text>
-              </Pressable>
+  <Pressable
+    style={{
+      flex: 1,
+      backgroundColor: '#4CAF50',
+      paddingVertical: 12,
+      borderRadius: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+    onPress={() => {
+      restartQuiz();
+      setShowResultModal(false);
+    }}
+  >
+    <Text style={{ color: 'white', fontWeight: '600', fontSize: 16 }}>
+      Play Again
+    </Text>
+  </Pressable>
 
-              <Pressable style={[styles.secondaryAction, { marginLeft: 8 }]} onPress={() => { finishAndClose(); }}>
-                <Text style={styles.secondaryActionText}>Close</Text>
-              </Pressable>
-            </View>
+  <Pressable
+    style={{
+      flex: 1,
+      backgroundColor: '#E0E0E0',
+      paddingVertical: 12,
+      borderRadius: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginLeft: 15,
+    }}
+    onPress={() => {
+      finishAndClose();
+    }}
+  >
+    <Text style={{ color: '#333', fontWeight: '600', fontSize: 16 }}>
+      Close
+    </Text>
+  </Pressable>
+</View>
+
           </View>
         </View>
       </Modal>
